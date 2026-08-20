@@ -11,23 +11,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain securityFilterChain(
-            HttpSecurity http
-    ) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf
-                .ignoringRequestMatchers(
-                    "/api/**"
-                )
+            .csrf(csrf -> csrf.disable())
+            .headers(headers -> headers
+                .frameOptions(frame -> frame.disable())
             )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers( "/api/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .headers(headers -> headers
-                .frameOptions(frame -> frame.sameOrigin())
+                .anyRequest().permitAll()
             );
 
         return http.build();

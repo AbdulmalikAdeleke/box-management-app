@@ -1,10 +1,6 @@
 package com.example.polarisdigitech.exception;
 
-import lombok.Getter;
-
-@Getter
-public class ExceededBoxCapacityException
-        extends RuntimeException {
+public class ExceededBoxCapacityException extends RuntimeException {
 
     private final int currentWeight;
     private final int itemWeight;
@@ -22,5 +18,21 @@ public class ExceededBoxCapacityException
         this.itemWeight = itemWeight;
         this.maximumCapacity = maximumCapacity;
         this.remainingCapacity = maximumCapacity - currentWeight;
+    }
+
+    public int getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public int getItemWeight() {
+        return itemWeight;
+    }
+
+    public int getMaximumCapacity() {
+        return maximumCapacity;
+    }
+
+    public int getRemainingCapacity() {
+        return remainingCapacity;
     }
 }

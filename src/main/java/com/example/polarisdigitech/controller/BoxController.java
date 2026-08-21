@@ -61,7 +61,7 @@ public class BoxController {
         );
     }
 
-    @PostMapping("/{txref}/finish-loading")
+    @GetMapping("/{txref}/finish-loading")
     public ResponseEntity<?> finishLoading(
             @PathVariable String txref
     ) {
@@ -76,7 +76,7 @@ public class BoxController {
         );
     }
 
-    @PostMapping("/{txref}/start-delivery")
+    @GetMapping("/{txref}/start-delivery")
     public ResponseEntity<?> startDelivery(
             @PathVariable String txref
     ) {
@@ -91,7 +91,7 @@ public class BoxController {
         );
     }
 
-    @PostMapping("/{txref}/complete-delivery")
+    @GetMapping("/{txref}/complete-delivery")
     public ResponseEntity<?> completeDelivery(
             @PathVariable String txref
     ) {
@@ -106,7 +106,7 @@ public class BoxController {
         );
     }
 
-    @PostMapping("/{txref}/start-return")
+    @GetMapping("/{txref}/start-return")
     public ResponseEntity<?> startReturn(
             @PathVariable String txref
     ) {
